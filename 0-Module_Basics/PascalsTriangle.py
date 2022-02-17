@@ -4,13 +4,13 @@ from pip import main
 
 def triangle(numRows):
     ans=[]
-    for i in range(1,numRows+1):
+    for i in range(0,numRows):
         temp=[]
-        for j in range(1,i+1):
-            if(j==1 or j==i):
+        for j in range(0,i+1):
+            if(j==0 or j==i):
                 temp.append(1)
             else:
-                temp.append(ans[i-2][j-2]+ans[i-2][j-1])
+                temp.append(ans[i-1][j-1]+ans[i-1][j])
                 # print(temp)
         ans.append(temp)
     return ans
