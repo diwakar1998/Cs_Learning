@@ -1,18 +1,13 @@
-INPUT = 0-Module_Basics/PascalsTriangle
+INPUTFOLDER = 0-Module_Basics
+INPUTFILE = PascalsTriangle
+OUTPUTFOLDER = $(INPUTFOLDER)/bin
+OUTPUTFILE = $(OUTPUTFOLDER)/$(INPUTFILE)
 
-
-all:fresh compile run 
+all:clean compile run 
 
 compile:
-	g++ -o $(INPUT).out $(INPUT).cpp
-
+	g++ -o $(OUTPUTFILE) $(INPUTFOLDER)/$(INPUTFILE).cpp
 run:
-	./$(INPUT).out
-
-fresh: clean clearscr
-
-clearscr:
-	clear
-
+	./$(OUTPUTFILE).exe
 clean:
-	rm -rf *.out
+	cd $(OUTPUTFOLDER) && del *.exe
