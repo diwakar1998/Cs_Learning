@@ -1,43 +1,29 @@
 #include<iostream>
 #include<vector>
 
-std::vector<std::string> cases= {"Camel Case", "Snake Case", "Kebab Case", "Pascal Case" , "Upper Case Snake","Print in all formats"};
+std::vector<std::string> cases= {"camelCase", "snake_case", "kebab-case", "PascalCase" , "UPPER_CASE_SNAKE","Print in all formats"};
 
-void convert(std::string stringToConvert,int caseOfChoice){
-    std::string inputString="";
+void convert(std::string s,int caseOfChoice){
     std::vector<std::string> inputWordsList ={};
     std::string buffer="";
 
 //removes anything thats not alphabet
-    for(int i=0;i<stringToConvert.length();i++){
-        
-        if(isalpha(stringToConvert[i]) || stringToConvert[i] == ' '){
+    for(int i=0;i<s.length();i++){
+        if((s[i]>=65 && s[i]<=90)||(s[i]>=97 && s[i]<=122)||s[i]==' '){
+            if(s[i] == ' '|| i == s.length()-1){
+                inputWordsList.push_back(buffer);
+                buffer="";
+                continue;
+            }
             if(caseOfChoice == 5){
-                inputString+=toupper(stringToConvert[i]);    
+                buffer+=toupper(s[i]);    
             }
             else{
-                inputString+=tolower(stringToConvert[i]);
+                buffer+=tolower(s[i]);
             }
-        }
-        
-        if(i==stringToConvert.length()-1){
-            inputString+=" ";
-        }
+        }   
     }
-
-//splits the string into separate words and pushed those words into list  
-    for(int i=0;i<inputString.length();i++){
-        if(isalpha(inputString[i])){
-            buffer+=inputString[i];
-        }
-        else if(inputString[i] = ' '){
-            inputWordsList.push_back(buffer);
-            buffer="";
-        }
-    }
-
-   
-
+    
     //takes care of transforming the input's case
     char separator='_';
     int i=0;
@@ -73,6 +59,7 @@ void convert(std::string stringToConvert,int caseOfChoice){
 int main(int argc, char const *argv[])
 {
 
+// convert("adf sdf sdf sad fsdaf ",3);
     //TODO: Read input properly
     // title and reading string from user
     std::cout<<"String Manipulation Project\n";
