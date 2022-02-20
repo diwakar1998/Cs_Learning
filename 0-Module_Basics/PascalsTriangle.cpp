@@ -28,11 +28,11 @@ int main(int argc, char const *argv[])
     auto ans = generate(n);
     for(auto rows : ans)
     {
-        int x=n-k;
-        while(x!=0){
-            printf(" ");
-            x--;
-        }
+        // int x=n-k;
+        // while(x!=0){
+        //     printf(" ");
+        //     x--;
+        // }
         for(auto nums : rows)
         {
             std::cout<<nums<<" ";   

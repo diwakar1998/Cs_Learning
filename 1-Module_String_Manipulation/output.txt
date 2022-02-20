@@ -1,0 +1,9 @@
+String Manipulation Project
+Enter a sentence
+1 camelCase
+2 snake_case
+3 kebab-case
+4 PascalCase
+5 UPPER_CASE_SNAKE
+6 Print in all formats
+Enter your choice: 
