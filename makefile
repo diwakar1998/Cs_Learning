@@ -1,7 +1,7 @@
-INPUTFOLDER = 0-Module_Basics
-INPUTFILE = RemoveDuplicatesFromSortedArray
-OUTPUTFOLDER = $(INPUTFOLDER)/bin
-OUTPUTFILE = $(OUTPUTFOLDER)/$(INPUTFILE)
+INPUTFOLDER = 2-Module_LinkedLists
+INPUTFILE = linkedList
+OUTPUTFOLDER = $(INPUTFOLDER)/build
+OUTPUTFILE = $(INPUTFILE)-Exec
 FLAGS = -Wall \
 # -Wextra -Wformat-nonliteral -Wcast-align -Wpointer-arith -Wbad-function-cast \
 -Wmissing-prototypes -Wstrict-prototypes -Wmissing-declarations -Winline -Wundef \
@@ -9,14 +9,23 @@ FLAGS = -Wall \
 -Wfloat-equal -pedantic -ansi
 
 
-all:clearscr clean compile run 
+all:folderCheck clearscr clean compile run 
 
 compile:
-	g++ $(FLAGS) -o $(OUTPUTFILE) $(INPUTFOLDER)/$(INPUTFILE).cpp
+	g++ $(FLAGS) -o $(OUTPUTFOLDER)/$(OUTPUTFILE) $(INPUTFOLDER)/$(INPUTFILE).cpp
+
 run:
-	./$(OUTPUTFILE).exe
+	./$(OUTPUTFOLDER)/$(OUTPUTFILE).exe
+
+checkBuild:
+	cd $(OUTPUTFOLDER) && ls
+	
+
+folderCheck:
+	if [ -d "$(OUTPUTFOLDER)/" ]; then echo "build folder found.." ; else mkdir $(OUTPUTFOLDER) && echo "$(OUTPUTFOLDER) created! "; fi
 
 clearscr:
-	cls
+	clear
+
 clean:
-	cd $(OUTPUTFOLDER) && del *.exe
+	cd $(OUTPUTFOLDER) && rm -rf *.exe
