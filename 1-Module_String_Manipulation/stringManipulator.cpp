@@ -58,19 +58,17 @@ void convert(std::string s,int caseOfChoice){
 
 int main(int argc, char const *argv[])
 {
-
-// convert("adf sdf sdf sad fsdaf ",3);
-    //TODO: Read input properly
+//  convert("adf sdf sdf sad fsdaf ",3);
     // title and reading string from user
     std::cout<<"String Manipulation Project\n";
 
-    //   //take input
+    //take input
     std::cout<<"Enter a sentence\n";
     std::string stringEntered;
     getline(std::cin, stringEntered);
 
     //selecting an option 
-    //prints options
+    //prints options 
     for(int i=0;i<cases.size();i++){
         std::cout<<i+1<<' '<<cases[i]<<'\n';
     }
@@ -78,10 +76,6 @@ int main(int argc, char const *argv[])
     int option ;
     std::cin>>option;
 
-    // convert("Hello, World! Try this",5);
-
-    // //calls the method and prints the string obtained
-    // // for seeing all cases at once
     if(option == 6){
         int m=1;
         while(m<6){
